@@ -44,7 +44,6 @@ function endGame() {
         resultDiv.innerHTML += "<br>It's a tie.";
     }
 
-    // Optionally, reset the game by resetting playerWins and computerWins
     playerWins = 0;
     computerWins = 0;
 }
