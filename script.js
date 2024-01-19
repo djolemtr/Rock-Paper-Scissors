@@ -81,6 +81,8 @@ function game() {
         console.log(playRound(playerSelection, computerSelection));
     }
 
+    alert( (playerWins > computerWins) ? "You won the game!" : "You lost the game.")
+
     playerWins = 0;
     computerWins = 0;
     round = 1;
