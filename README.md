@@ -1,2 +1,3 @@
-# Rock-Paper-Scissors
-A Rock Paper Scissors Game. Played with console. 
+# Rock-Paper-Scissors Game
+
+Play: https://djolemtr.github.io/RockPaperScissors/

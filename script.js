@@ -69,19 +69,28 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     while (round <= 5) {
-        console.log("Round: " + round);
-        console.log("Player wins: " + playerWins);
-        console.log("Computer wins: " + computerWins);
 
+        alert(
+            "Round: " + round + "\n" +
+            "Player wins: " + playerWins + "\n" +
+            "Computer wins: " + computerWins
+        );
 
         let playerSelection = prompt("Enter choice:");
         playerSelection = playerSelection.toLowerCase();
         let computerSelection = getRandomChoice();
 
-        console.log(playRound(playerSelection, computerSelection));
+        alert(
+            playerSelection + " " + computerSelection + "\n" +
+            playRound(playerSelection, computerSelection)
+        );
+
     }
 
-    alert( (playerWins > computerWins) ? "You won the game!" : "You lost the game.")
+    alert(
+        playerWins +  " : " + computerWins  + "\n" +
+        ((playerWins > computerWins) ? "You won the game!" : "You lost the game.")
+    );
 
     playerWins = 0;
     computerWins = 0;
