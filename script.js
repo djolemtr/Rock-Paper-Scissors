@@ -2,6 +2,28 @@ let playerWins = 0;
 let computerWins = 0;
 let round = 1;
 
+/* NEW CODE */
+
+const btnRock = document.querySelector(".rock");
+const btnPaper = document.querySelector(".paper");
+const btnScissors = document.querySelector(".scissors");
+
+btnRock.textContent = "Rock";
+btnPaper.textContent = "Paper";
+btnScissors.textContent = "Scissors";
+
+const result = document.querySelector(".result");
+
+btnRock.addEventListener('click', () => {
+
+    result.textContent = playRound("rock", getRandomChoice);
+
+
+});
+
+
+/* NEW CODE */
+
 function getRandomChoice() {
 
     var number = Math.floor(Math.random() * 3) + 1;
