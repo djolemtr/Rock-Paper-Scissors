@@ -1,15 +1,10 @@
 let playerWins = 0;
 let computerWins = 0;
-let round = 1;
-
-/* NEW CODE */
 
 const buttons = document.querySelectorAll('button');
 const scoreLabel = document.querySelector(".score");
 scoreLabel.textContent = "Player: 0 " + "Computer: 0";
 const roundLabel = document.querySelector(".round");
-
-
 
 buttons.forEach(function (button) {
     button.addEventListener('click', function (event) {
@@ -23,13 +18,6 @@ buttons.forEach(function (button) {
                 " " + "Computer: " + computerWins;
 
             roundLabel.textContent = playRound(buttonClass, getRandomChoice());
-
-            if (roundLabel.textContent !== "It's a tie. Repeating round.") {
-
-                round++;
-            }
-
-
         }
 
         if (playerWins === 5 || computerWins === 5) {
@@ -39,8 +27,6 @@ buttons.forEach(function (button) {
         }
     });
 });
-
-/* NEW CODE */
 
 function getRandomChoice() {
 
@@ -68,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
         return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "rock" && computerSelection === "rock") {
         console.log(playerSelection + " " + computerSelection);
-        return playerSelection + " : " + computerSelection + " = " + "It's a tie. Repeating round."
+        return playerSelection + " : " + computerSelection + " = " + "It's a tie."
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
@@ -81,7 +67,7 @@ function playRound(playerSelection, computerSelection) {
         return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "paper" && computerSelection === "paper") {
         console.log(playerSelection + " " + computerSelection);
-        return playerSelection + " : " + computerSelection + " = " + "It's a tie. Repeating round."
+        return playerSelection + " : " + computerSelection + " = " + "It's a tie."
     }
 
     if (playerSelection === "scissors" && computerSelection === "paper") {
@@ -94,43 +80,9 @@ function playRound(playerSelection, computerSelection) {
         return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
         console.log(playerSelection + " " + computerSelection);
-        return playerSelection + " : " + computerSelection + " = " + "It's a tie. Repeating round."
+        return playerSelection + " : " + computerSelection + " = " + "It's a tie."
     } else {
         return "Unknown error"
     }
 }
-
-function game() {
-
-    while (round <= 5) {
-
-        alert(
-            "Round: " + round + "\n" +
-            "Player wins: " + playerWins + "\n" +
-            "Computer wins: " + computerWins
-        );
-
-        let playerSelection = prompt("Enter choice:");
-        playerSelection = playerSelection.toLowerCase();
-        let computerSelection = getRandomChoice();
-
-        alert(
-            playerSelection + " " + computerSelection + "\n" +
-            playRound(playerSelection, computerSelection)
-        );
-
-    }
-
-    alert(
-        playerWins + " : " + computerWins + "\n" +
-        ((playerWins > computerWins) ? "You won the game!" : "You lost the game.")
-    );
-
-    playerWins = 0;
-    computerWins = 0;
-    round = 1;
-
-}
-
-
 
