@@ -5,10 +5,9 @@ let round = 1;
 /* NEW CODE */
 
 const buttons = document.querySelectorAll('button');
-const labelRound = document.querySelector(".round");
-labelRound.textContent = "Player: 0 " + "Computer: 0";
-const score = document.querySelector(".score");
-const finalResult = document.querySelector(".finalResult");
+const scoreLabel = document.querySelector(".score");
+scoreLabel.textContent = "Player: 0 " + "Computer: 0";
+const roundLabel = document.querySelector(".round");
 
 
 
@@ -20,12 +19,12 @@ buttons.forEach(function (button) {
 
         if (playerWins < 5 && computerWins < 5) {
 
-            labelRound.textContent = "Player: " + playerWins +
+            scoreLabel.textContent = "Player: " + playerWins +
                 " " + "Computer: " + computerWins;
 
-            score.textContent = playRound(buttonClass, getRandomChoice());
+            roundLabel.textContent = playRound(buttonClass, getRandomChoice());
 
-            if (score.textContent !== "It's a tie. Repeating round.") {
+            if (roundLabel.textContent !== "It's a tie. Repeating round.") {
 
                 round++;
             }
@@ -34,7 +33,8 @@ buttons.forEach(function (button) {
         }
 
         if (playerWins === 5 || computerWins === 5) {
-            labelRound.textContent = playerWins + " : " + computerWins + "\n" +
+            scoreLabel.textContent = "Player: " + playerWins +
+                " " + "Computer: " + computerWins + " = " +
                 ((playerWins > computerWins) ? "You won the game!" : "You lost the game.");
         }
     });
@@ -61,42 +61,42 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerWins++;
         console.log(playerSelection + " " + computerSelection);
-        return "You won!"
+        return playerSelection + " : " + computerSelection + " = " + "You won!"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         computerWins++;
         console.log(playerSelection + " " + computerSelection);
-        return "You lost."
+        return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "rock" && computerSelection === "rock") {
         console.log(playerSelection + " " + computerSelection);
-        return "It's a tie. Repeating round."
+        return playerSelection + " : " + computerSelection + " = " + "It's a tie. Repeating round."
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
         playerWins++;
         console.log(playerSelection + " " + computerSelection);
-        return "You won!"
+        return playerSelection + " : " + computerSelection + " = " + "You won!"
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerWins++;
         console.log(playerSelection + " " + computerSelection);
-        return "You lost."
+        return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "paper" && computerSelection === "paper") {
         console.log(playerSelection + " " + computerSelection);
-        return "It's a tie. Repeating round."
+        return playerSelection + " : " + computerSelection + " = " + "It's a tie. Repeating round."
     }
 
     if (playerSelection === "scissors" && computerSelection === "paper") {
         playerWins++;
         console.log(playerSelection + " " + computerSelection);
-        return "You won!"
+        return playerSelection + " : " + computerSelection + " = " + "You won!"
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerWins++;
         console.log(playerSelection + " " + computerSelection);
-        return "You lost."
+        return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
         console.log(playerSelection + " " + computerSelection);
-        return "It's a tie. Repeating round."
+        return playerSelection + " : " + computerSelection + " = " + "It's a tie. Repeating round."
     } else {
-        return "Unknown command"
+        return "Unknown error"
     }
 }
 
