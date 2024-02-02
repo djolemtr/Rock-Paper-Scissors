@@ -6,8 +6,8 @@ let round = 1;
 
 const buttons = document.querySelectorAll('button');
 const labelRound = document.querySelector(".round");
-labelRound.textContent = "Round: 1";
-const result = document.querySelector(".result");
+labelRound.textContent = "Player: 0 " + "Computer: 0";
+const score = document.querySelector(".score");
 const finalResult = document.querySelector(".finalResult");
 
 
@@ -18,12 +18,14 @@ buttons.forEach(function (button) {
         // Get the class of the clicked button
         let buttonClass = event.target.classList[0];
 
-        if (round <= 5) {
+        if (playerWins < 5 && computerWins < 5) {
 
+            labelRound.textContent = "Player: " + playerWins +
+                " " + "Computer: " + computerWins;
 
-            result.textContent = playRound(buttonClass, getRandomChoice());
+            score.textContent = playRound(buttonClass, getRandomChoice());
 
-            if (result.textContent !== "It's a tie. Repeating round.") {
+            if (score.textContent !== "It's a tie. Repeating round.") {
 
                 round++;
             }
@@ -31,9 +33,10 @@ buttons.forEach(function (button) {
 
         }
 
-        labelRound.textContent = (round !== 6) ? "Round: " + round : playerWins + " : " + computerWins + "\n" +
-            ((playerWins > computerWins) ? "You won the game!" : "You lost the game.");
-
+        if (playerWins === 5 || computerWins === 5) {
+            labelRound.textContent = playerWins + " : " + computerWins + "\n" +
+                ((playerWins > computerWins) ? "You won the game!" : "You lost the game.");
+        }
     });
 });
 
