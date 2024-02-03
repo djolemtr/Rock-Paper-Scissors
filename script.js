@@ -80,8 +80,6 @@ function playRound(playerSelection, computerSelection) {
         return playerSelection + " : " + computerSelection + " - " + "You lost."
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
         return playerSelection + " : " + computerSelection + " - " + "It's a tie."
-    } else {
-        return "Unknown error"
     }
 }
 
