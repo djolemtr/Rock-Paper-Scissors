@@ -5,6 +5,7 @@ const buttons = document.querySelectorAll('button');
 const scoreLabel = document.querySelector(".score");
 scoreLabel.textContent = "Player: 0 " + "Computer: 0";
 const roundLabel = document.querySelector(".round");
+const endInfo = document.querySelector(".endInfo");
 
 buttons.forEach(function (button) {
     button.addEventListener('click', function (event) {
@@ -21,9 +22,16 @@ buttons.forEach(function (button) {
         }
 
         if (playerWins === 5 || computerWins === 5) {
+
             scoreLabel.textContent = "Player: " + playerWins +
-                " " + "Computer: " + computerWins + " = " +
-                ((playerWins > computerWins) ? "You won the game!" : "You lost the game.");
+                " " + "Computer: " + computerWins;
+
+            endInfo.textContent = ((playerWins > computerWins)
+                ? "You won the game!" : "You lost the game.");
+
+            endInfo.style.color = (playerWins > computerWins) ? "green" : "red";
+            endInfo.style.textShadow = "0 0 5px white";
+
         }
     });
 });
@@ -46,32 +54,32 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerWins++;
-        return playerSelection + " : " + computerSelection + " = " + "You won!"
+        return playerSelection + " : " + computerSelection + " - " + "You won!"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         computerWins++;
-        return playerSelection + " : " + computerSelection + " = " + "You lost."
+        return playerSelection + " : " + computerSelection + " - " + "You lost."
     } else if (playerSelection === "rock" && computerSelection === "rock") {
-        return playerSelection + " : " + computerSelection + " = " + "It's a tie."
+        return playerSelection + " : " + computerSelection + " - " + "It's a tie."
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
         playerWins++;
-        return playerSelection + " : " + computerSelection + " = " + "You won!"
+        return playerSelection + " : " + computerSelection + " - " + "You won!"
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerWins++;
-        return playerSelection + " : " + computerSelection + " = " + "You lost."
+        return playerSelection + " : " + computerSelection + " - " + "You lost."
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        return playerSelection + " : " + computerSelection + " = " + "It's a tie."
+        return playerSelection + " : " + computerSelection + " - " + "It's a tie."
     }
 
     if (playerSelection === "scissors" && computerSelection === "paper") {
         playerWins++;
-        return playerSelection + " : " + computerSelection + " = " + "You won!"
+        return playerSelection + " : " + computerSelection + " - " + "You won!"
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerWins++;
-        return playerSelection + " : " + computerSelection + " = " + "You lost."
+        return playerSelection + " : " + computerSelection + " - " + "You lost."
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        return playerSelection + " : " + computerSelection + " = " + "It's a tie."
+        return playerSelection + " : " + computerSelection + " - " + "It's a tie."
     } else {
         return "Unknown error"
     }
