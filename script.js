@@ -46,40 +46,31 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerWins++;
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "You won!"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         computerWins++;
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "rock" && computerSelection === "rock") {
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "It's a tie."
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
         playerWins++;
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "You won!"
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerWins++;
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "It's a tie."
     }
 
     if (playerSelection === "scissors" && computerSelection === "paper") {
         playerWins++;
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "You won!"
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerWins++;
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "You lost."
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        console.log(playerSelection + " " + computerSelection);
         return playerSelection + " : " + computerSelection + " = " + "It's a tie."
     } else {
         return "Unknown error"
