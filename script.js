@@ -3,7 +3,7 @@ let computerWins = 0;
 
 const buttons = document.querySelectorAll('button');
 const scoreLabel = document.querySelector(".score");
-scoreLabel.textContent = "Player: 0 " + "Computer: 0";
+scoreLabel.textContent = "Player 0 " + " : " + "Computer 0";
 const roundLabel = document.querySelector(".round");
 const endInfo = document.querySelector(".endInfo");
 
@@ -15,22 +15,22 @@ buttons.forEach(function (button) {
 
         if (playerWins < 5 && computerWins < 5) {
 
-            scoreLabel.textContent = "Player: " + playerWins +
-                " " + "Computer: " + computerWins;
+            scoreLabel.textContent = "Player " + playerWins +
+                " : " + "Computer " + computerWins;
 
             roundLabel.textContent = playRound(buttonClass, getRandomChoice());
         }
 
         if (playerWins === 5 || computerWins === 5) {
 
-            scoreLabel.textContent = "Player: " + playerWins +
-                " " + "Computer: " + computerWins;
+            scoreLabel.textContent = "Player " + playerWins +
+                " : " + "Computer " + computerWins;
 
             endInfo.textContent = ((playerWins > computerWins)
                 ? "You won the game!" : "You lost the game.");
 
             endInfo.style.color = (playerWins > computerWins) ? "green" : "red";
-            endInfo.style.textShadow = "0 0 5px white";
+            endInfo.style.textShadow = "0 0 10px white";
 
         }
     });
